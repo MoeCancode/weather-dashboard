@@ -37,8 +37,36 @@ function displayUpperData(theData) {
     //Update the text content on the HTML
     
     console.log(theData);
+    
     var theTemperature = document.querySelector("#temperature");
     theTemperature.innerHTML = theData.current.temp + " F";
+
+    var theHumidity = document.querySelector("#humidity");
+    theHumidity.innerHTML = theData.current.humidity + "%";
+
+    var theWindSpeed = document.querySelector("#windSpeed");
+    theWindSpeed.innerHTML = theData.current.wind_speed + " MPH";
+
+    var theUVIndex = document.querySelector("#uvIndex");
+    theUVIndex.innerHTML = theData.current.uvi;
+
+    var cityChosen = document.querySelector("#myCity");
+    cityChosen.innerHTML = document.querySelector("#searchForm").value + " ";
+
+    uvIndexColor(theData.current.uvi);
+}
+
+//Function that adds color to uv index 
+function uvIndexColor(val) {
+    if(val > 7) {
+        document.querySelector("#uvIndex").style.backgroundColor = "Red";
+    }
+    else if(val > 4) {
+        document.querySelector("#uvIndex").style.backgroundColor = "rgb(234, 186, 57)";
+    }
+    else {
+        document.querySelector("#uvIndex").style.backgroundColor = "green";
+    }
 }
 
 
