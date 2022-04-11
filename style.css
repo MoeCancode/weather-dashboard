@@ -41,7 +41,7 @@ body {
 }
 
 .rightSide {
-    background-color: rgb(159, 71, 222);
+    background-color: rgb(222, 71, 114);
     border: 1px solid rgb(75, 74, 74);
     border-radius: 20px;
     padding: 20px;
@@ -75,6 +75,9 @@ body {
     margin-bottom: 5px;
     font-size: 20px;
 }
+.leftSide form input {
+    max-width: 100%;
+}
 
 .leftSide form button {
     background-color: rgb(168, 89, 225);
@@ -86,4 +89,19 @@ body {
 
 .upper {
     margin-bottom: 25px;
+    margin-left: 8px;
+}
+
+.upper h1 {
+    background-color: black;
+    border: black 1px solid;
+    border-radius: 15px;
+    margin-bottom: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.lower {
+    margin-left: 8px;
 }
