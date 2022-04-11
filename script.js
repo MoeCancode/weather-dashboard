@@ -1,5 +1,8 @@
 var apiKey = "ec1adb15cd1e6cb24a504f57722bba8d"
 var searchButton = document.querySelector("#search");
+var date = moment().format('MMMM Do YYYY');
+var whereDateGoes = document.querySelector("#dateGoesHere");
+whereDateGoes.innerHTML = `(${date})`;
 
 //
 async function fetchWeather(searchBarInput) {
