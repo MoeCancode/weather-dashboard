@@ -36,8 +36,9 @@ body {
     border: 1px solid rgb(176, 70, 97);
     padding: 10px;
     margin: 10px;
-    background-color: black;
+    background-color: white;
     border-radius: 7px;
+    color: rgb(188, 35, 188);
 }
 
 .rightSide {
@@ -92,8 +93,8 @@ body {
     margin-left: 8px;
 }
 
-.upper h2 {
-    /* background-color: black; */
+#myCity {
+    /* background-color: rgb(73, 208, 226); */
     /* border: black 1px solid; */
     border-radius: 15px;
     margin-bottom: 35px;
@@ -107,8 +108,9 @@ body {
 }
 
 .metric {
-    background-color: black;
-    color: rgb(222, 71, 114);
+    background-color: white;
+    /* color: rgb(222, 71, 114); */
+    color: rgb(206, 49, 206);
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
