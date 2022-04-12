@@ -4,12 +4,26 @@ var date = moment().format('MMMM Do, YYYY');
 var mainWeatherIcon = document.querySelector("#weatherIcon");
 var whereDateGoes = document.querySelector("#dateGoesHere");
 whereDateGoes.innerHTML = `(${date})`;
+var sideLeft = document.querySelector(".leftSide");
+var citySearch = document.querySelector("#searchForm");
+var alreadyssigned = false;
 
 //function called when search button is clicked
 searchButton.addEventListener("click", function(e) {
     e.preventDefault();
     var chosenCity = document.querySelector("#searchForm").value;
-    fetchWeather(chosenCity);
+
+    var actualCity = fetchWeather(chosenCity);
+
+    if(actualCity != null) {
+        var cityButton = document.createElement("button");
+        cityButton.innerHTML = chosenCity;
+        cityButton.classList.add("searchHistoryButton");
+        sideLeft.append(cityButton);
+
+        localStorage.setItem(chosenCity , chosenCity);
+    }
+    
 })
 
 //function that generates url for the city using longitude and latitude
@@ -32,6 +46,22 @@ function fetchGeoCode(cityname) {
 }
 
 function displayUpperData(theData) {
+    //Create Recent search button
+    
+
+    var allButtons = document.querySelectorAll(".searchHistoryButton");
+    console.log(allButtons);
+
+    for(var z = 0; z < allButtons.length; z++) {
+
+        if(alreadyssigned == false)
+        allButtons[z].addEventListener("click", function() {
+            
+
+        })
+    }
+
+
     //Make variables that store required values
     //Update the text content on the HTML
     

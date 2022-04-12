@@ -153,3 +153,16 @@ hr {
     width: 75px;
     height: auto;
 }
+
+.searchHistoryButton {
+    padding-top: 0.65em;
+    padding-bottom: 0.65em;
+    margin: 5px;
+    font-size: 19px;
+    font-weight: bolder;
+    color: #5e2444;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+    width: 100%;
+}
