@@ -141,3 +141,10 @@ hr {
 #traverse {
     opacity: 0;
 }
+
+.daycardInfo {
+    color: black;
+    margin-top: 25px;
+    font-size: 13.5px;
+    font-weight: bold;
+}

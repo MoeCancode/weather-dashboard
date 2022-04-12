@@ -1,6 +1,7 @@
 var apiKey = "ec1adb15cd1e6cb24a504f57722bba8d"
 var searchButton = document.querySelector("#search");
 var date = moment().format('MMMM Do, YYYY');
+var mainWeatherIcon = document.querySelector("#weatherIcon");
 var whereDateGoes = document.querySelector("#dateGoesHere");
 whereDateGoes.innerHTML = `(${date})`;
 
@@ -51,6 +52,9 @@ function displayUpperData(theData) {
     var cityChosen = document.querySelector("#myCity");
     cityChosen.innerHTML = document.querySelector("#searchForm").value + " ";
 
+    var icon = theData.current.weather[0].icon;
+    mainWeatherIcon.src= `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
     uvIndexColor(theData.current.uvi);
     displayLowerData(theData);
 }
@@ -85,7 +89,7 @@ function displayLowerData(theDataObject) {
         var dayTemperature = theDataObject.daily[x].temp.day; 
 
         var newDiv1 = document.createElement("p")
-        newDiv1.innerHTML = "Temperature: " + dayTemperature;
+        newDiv1.innerHTML = "Temperature: " + dayTemperature + " F";
         newDiv1.classList.add("daycardInfo");
         traverseDiv.children[x].appendChild(newDiv1);
 
@@ -93,7 +97,7 @@ function displayLowerData(theDataObject) {
         var dayHumidity = theDataObject.daily[x].humidity; 
 
         var newDiv2 = document.createElement("p")
-        newDiv2.innerHTML = "Humidity: " + dayHumidity;
+        newDiv2.innerHTML = "Humidity: " + dayHumidity + "%";
         newDiv2.classList.add("daycardInfo");
         traverseDiv.children[x].appendChild(newDiv2);
     
