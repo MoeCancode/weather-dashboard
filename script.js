@@ -76,8 +76,8 @@ function displayLowerData(theDataObject) {
     var traverseDiv = document.querySelector("#traverse");
 
     for(var i =0; i<5; i++) {
-        traverseDiv.children[i].innerHTML = i;
-        console.log(traverseDiv.children[i]);
+        traverseDiv.children[i].innerHTML = moment().add(i,'days').format('MMMM Do, YYYY');
+        // console.log(traverseDiv.children[i]);
     }
     
 }
