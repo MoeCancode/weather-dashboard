@@ -148,3 +148,8 @@ hr {
     font-size: 13.5px;
     font-weight: bold;
 }
+
+.resize {
+    width: 75px;
+    height: auto;
+}

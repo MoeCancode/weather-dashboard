@@ -85,6 +85,15 @@ function displayLowerData(theDataObject) {
     }
     
     for(var x = 0; x < 5; x++) {
+    
+        //Update icon for next 5 days
+        var smallIcon = theDataObject.daily[x].weather[0].icon;
+        var newImg = document.createElement("img");
+        newImg.src = `http://openweathermap.org/img/wn/${smallIcon}@2x.png`;
+        newImg.classList.add("resize");
+        traverseDiv.children[x].appendChild(newImg);
+    
+       
         //Update Temperature for next 5 days
         var dayTemperature = theDataObject.daily[x].temp.day; 
 
@@ -96,11 +105,11 @@ function displayLowerData(theDataObject) {
         //Update humidity for next 5 days
         var dayHumidity = theDataObject.daily[x].humidity; 
 
-        var newDiv2 = document.createElement("p")
+        var newDiv2 = document.createElement("p");
         newDiv2.innerHTML = "Humidity: " + dayHumidity + "%";
         newDiv2.classList.add("daycardInfo");
         traverseDiv.children[x].appendChild(newDiv2);
-    
+
     }
 
 }
