@@ -57,7 +57,7 @@ body {
     border-radius: 20px;
     padding: 20px;
     margin: 10px;
-    height: 530px;
+    /* height: 530px; */
 }
 
 .leftSide h4 {
@@ -136,4 +136,8 @@ hr {
 #uvIndex {
     padding: 5px;
     background-color: transparent;
+}
+
+#traverse {
+    opacity: 0;
 }

@@ -70,16 +70,35 @@ function uvIndexColor(val) {
 
 function displayLowerData(theDataObject) {
     console.log(theDataObject);
- //Make variables that store required values
-    //Update the text content on the HTML
 
+    //Update dates for the next five days in the daycards
     var traverseDiv = document.querySelector("#traverse");
+    traverseDiv.style.opacity = "1";
 
     for(var i =0; i<5; i++) {
-        traverseDiv.children[i].innerHTML = moment().add(i,'days').format('MMMM Do, YYYY');
+        traverseDiv.children[i].innerHTML = moment().add(i+1,'days').format('MMMM Do, YYYY');
         // console.log(traverseDiv.children[i]);
     }
     
+    for(var x = 0; x < 5; x++) {
+        //Update Temperature for next 5 days
+        var dayTemperature = theDataObject.daily[x].temp.day; 
+
+        var newDiv1 = document.createElement("p")
+        newDiv1.innerHTML = "Temperature: " + dayTemperature;
+        newDiv1.classList.add("daycardInfo");
+        traverseDiv.children[x].appendChild(newDiv1);
+
+        //Update humidity for next 5 days
+        var dayHumidity = theDataObject.daily[x].humidity; 
+
+        var newDiv2 = document.createElement("p")
+        newDiv2.innerHTML = "Humidity: " + dayHumidity;
+        newDiv2.classList.add("daycardInfo");
+        traverseDiv.children[x].appendChild(newDiv2);
+    
+    }
+
 }
 
 
