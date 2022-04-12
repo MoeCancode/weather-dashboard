@@ -13,16 +13,11 @@ searchButton.addEventListener("click", function(e) {
     e.preventDefault();
     var chosenCity = document.querySelector("#searchForm").value;
 
-    var actualCity = fetchWeather(chosenCity);
+    fetchWeather(chosenCity);
 
-    if(actualCity != null) {
-        var cityButton = document.createElement("button");
-        cityButton.innerHTML = chosenCity;
-        cityButton.classList.add("searchHistoryButton");
-        sideLeft.append(cityButton);
 
+        
         localStorage.setItem(chosenCity , chosenCity);
-    }
     
 })
 
@@ -34,15 +29,28 @@ async function fetchWeather(searchBarInput) {
     var lat = geoDataObject[0].lat;
     var weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
     
-    fetch(weatherURL).then(response =>response.json()).then(data => displayUpperData(data));
+    // fetch(weatherURL).then(response =>response.json()).then(data => displayUpperData(data));
+    fetch(weatherURL).then(function(response) {
+        console.log(response.ok);
+        if(response.ok == true) {
+            var cityButton = document.createElement("button");
+            cityButton.innerHTML = citySearch.value;
+            cityButton.classList.add("searchHistoryButton");
+            sideLeft.append(cityButton);
+             return response.json();
+        } 
+    }).then(function(data) {
+        displayUpperData(data);
+    })
 }
 
 //function that takes city name and gives back object containing longitude and latitude
 function fetchGeoCode(cityname) {
     var geoCodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${apiKey}`
-   var geoData = fetch(geoCodeURL).then(response => response.json())
-    .then(data => data);
-    return geoData;
+
+   var geoData = fetch(geoCodeURL).then(response => response.json()).then(data => data);
+
+return geoData;
 }
 
 function displayUpperData(theData) {
