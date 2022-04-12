@@ -14,14 +14,12 @@ searchButton.addEventListener("click", function(e) {
 //function that generates url for the city using longitude and latitude
 async function fetchWeather(searchBarInput) {
     var geoDataObject = await fetchGeoCode(searchBarInput);
-    console.log(geoDataObject);
+    // console.log(geoDataObject);
     var lon = geoDataObject[0].lon;
     var lat = geoDataObject[0].lat;
     var weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
     
     fetch(weatherURL).then(response =>response.json()).then(data => displayUpperData(data));
-    // console.log(data);
-    // displayLowerData(data);
 }
 
 //function that takes city name and gives back object containing longitude and latitude
@@ -36,7 +34,7 @@ function displayUpperData(theData) {
     //Make variables that store required values
     //Update the text content on the HTML
     
-    console.log(theData);
+    // console.log(theData);
     
     var theTemperature = document.querySelector("#temperature");
     theTemperature.innerHTML = theData.current.temp + " F";
@@ -54,19 +52,34 @@ function displayUpperData(theData) {
     cityChosen.innerHTML = document.querySelector("#searchForm").value + " ";
 
     uvIndexColor(theData.current.uvi);
+    displayLowerData(theData);
 }
 
 //Function that adds color to uv index 
 function uvIndexColor(val) {
     if(val > 7) {
-        document.querySelector("#uvIndex").style.backgroundColor = "Red";
+        document.querySelector("#uvIndex").style.backgroundColor = "rgb(134, 31, 31)";
     }
     else if(val > 4) {
         document.querySelector("#uvIndex").style.backgroundColor = "rgb(234, 186, 57)";
     }
     else {
-        document.querySelector("#uvIndex").style.backgroundColor = "green";
+        document.querySelector("#uvIndex").style.backgroundColor = "rgb(23, 104, 23)";
     }
+}
+
+function displayLowerData(theDataObject) {
+    console.log(theDataObject);
+ //Make variables that store required values
+    //Update the text content on the HTML
+
+    var traverseDiv = document.querySelector("#traverse");
+
+    for(var i =0; i<5; i++) {
+        traverseDiv.children[i].innerHTML = i;
+        console.log(traverseDiv.children[i]);
+    }
+    
 }
 
 
