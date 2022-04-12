@@ -25,7 +25,7 @@ async function fetchWeather(searchBarInput) {
 
 //function that takes city name and gives back object containing longitude and latitude
 function fetchGeoCode(cityname) {
-    var geoCodeURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${apiKey}`
+    var geoCodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${apiKey}`
    var geoData = fetch(geoCodeURL).then(response => response.json())
     .then(data => data);
     return geoData;
@@ -53,7 +53,7 @@ function displayUpperData(theData) {
     cityChosen.innerHTML = document.querySelector("#searchForm").value + " ";
 
     var icon = theData.current.weather[0].icon;
-    mainWeatherIcon.src= `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    mainWeatherIcon.src= `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
     uvIndexColor(theData.current.uvi);
     displayLowerData(theData);
@@ -89,7 +89,7 @@ function displayLowerData(theDataObject) {
         //Update icon for next 5 days
         var smallIcon = theDataObject.daily[x].weather[0].icon;
         var newImg = document.createElement("img");
-        newImg.src = `http://openweathermap.org/img/wn/${smallIcon}@2x.png`;
+        newImg.src = `https://openweathermap.org/img/wn/${smallIcon}@2x.png`;
         newImg.classList.add("resize");
         traverseDiv.children[x].appendChild(newImg);
     
