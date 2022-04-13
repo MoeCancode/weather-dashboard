@@ -1,6 +1,6 @@
 body {
     font-family: 'Julius Sans One', sans-serif;
-    background-color: rgb(26, 25, 25);
+    background-color: rgb(14, 14, 14);
     color: white;
     font-size: 16px;
   line-height: 1;
@@ -37,14 +37,14 @@ body {
     padding: 10px;
     margin: 10px;
     background-color: white;
-    border-radius: 7px;
-    color: rgb(188, 35, 188);
+    border-radius: 4px;
+    /* color: rgb(9, 126, 97); */
 }
 
 .rightSide {
     /* background-color: rgb(222, 71, 114); */
-    background-color: #5e2444;
-    border: 1px solid rgb(75, 74, 74);
+    background-color: #290d1d;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
     padding: 20px;
     margin-right: 10px;
@@ -52,7 +52,7 @@ body {
 
 .leftSide {
     /* background-color: rgb(73, 208, 226); */
-    background-color: #2c5666;
+    background-color: #0b1e26;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
@@ -68,7 +68,7 @@ body {
 .leftSide form {
     background-color: black;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 10px;
 }
 
@@ -84,7 +84,7 @@ body {
 }
 
 .leftSide form button {
-    background-color: rgb(168, 89, 225);
+    background-color: rgb(52, 0, 71);
     font-weight: bold;
     color: white;
     padding-top: 4px;
@@ -99,7 +99,7 @@ body {
 #myCity {
     /* background-color: rgb(73, 208, 226); */
     /* border: black 1px solid; */
-    border-radius: 15px;
+    border-radius: 7px;
     margin-bottom: 35px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -113,17 +113,17 @@ body {
 .metric {
     background-color: white;
     /* color: rgb(222, 71, 114); */
-    color: rgb(206, 49, 206);
+    color: rgb(66, 0, 91);
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    border-radius: 7px;
+    border-radius: 3px;
     margin-right: 5px;
 }
 
 hr {
-    color: black;
+    color: rgb(206, 203, 203);
 }
 
 .cityDate {
@@ -131,6 +131,9 @@ hr {
     font-weight: bold;
     margin-bottom: 30px;
     margin-top: 15px;
+    /* background-color: black;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em; */
 }
 
 #uvIndex {
@@ -162,7 +165,7 @@ hr {
     font-weight: bolder;
     color: #5e2444;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid white;
     width: 100%;
 }
