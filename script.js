@@ -11,7 +11,7 @@ var memoryStore = [];
 
 console.log(localStorage);
 
-if(localStorage.length != 0) {
+if(localStorage.length != 0 || localStorage.getItem("cities") != null) {
 
     console.log(JSON.parse(localStorage.getItem("cities")).length)
 
