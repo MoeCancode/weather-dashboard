@@ -169,16 +169,3 @@ hr {
     border: 1px solid white;
     width: 100%;
 }
-
-#clearSearch {
-    padding-left: 4em;
-    padding-right: 4em;
-    font-size: 26px;
-    font-weight: bold;
-    background-color: rgb(37, 2, 50);
-    color: white;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-    margin-bottom: 18px;
-    border: solid 1px black;
-}
