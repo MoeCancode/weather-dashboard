@@ -9,7 +9,17 @@ var citySearch = document.querySelector("#searchForm");
 var alreadyssigned = false;
 var memoryStore = [];
 
-// localStorage.getItem("City:");
+if(localStorage != null) {
+    for(var q = 0; q<(JSON.parse(localStorage.getItem("cities")).length); q++) {
+        var storageButtons = document.createElement("button");
+
+        var storeArray = JSON.parse(localStorage.getItem("cities"));
+        console.log(storeArray);
+        storageButtons.innerHTML = storeArray[q];
+        storageButtons.classList.add("searchHistoryButton");
+        sideLeft.append(storageButtons);
+}
+}
 
 //function called when search button is clicked
 searchButton.addEventListener("click", function(e) {
@@ -20,7 +30,7 @@ searchButton.addEventListener("click", function(e) {
 
 
         memoryStore.push(chosenCity);
-        localStorage.setItem("Cities:", JSON.stringify(memoryStore));
+        localStorage.setItem("cities", JSON.stringify(memoryStore));
     
 })
 
