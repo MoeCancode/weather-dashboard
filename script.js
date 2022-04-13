@@ -9,7 +9,9 @@ var citySearch = document.querySelector("#searchForm");
 var alreadyssigned = false;
 var memoryStore = [];
 
-if(localStorage != null) {
+console.log(localStorage);
+
+if(localStorage.length != 0) {
     for(var q = 0; q<(JSON.parse(localStorage.getItem("cities")).length); q++) {
         var storageButtons = document.createElement("button");
 
