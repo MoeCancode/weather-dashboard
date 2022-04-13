@@ -7,6 +7,7 @@ whereDateGoes.innerHTML = `(${date})`;
 var sideLeft = document.querySelector(".leftSide");
 var citySearch = document.querySelector("#searchForm");
 var alreadyssigned = false;
+var memoryStore = {};
 
 //function called when search button is clicked
 searchButton.addEventListener("click", function(e) {
@@ -17,7 +18,7 @@ searchButton.addEventListener("click", function(e) {
 
 
         
-        localStorage.setItem(chosenCity , chosenCity);
+        localStorage.setItem(chosenCity, chosenCity);
     
 })
 
@@ -62,9 +63,10 @@ function displayUpperData(theData) {
 
     for(var z = 0; z < allButtons.length; z++) {
 
-        if(alreadyssigned == false)
-        allButtons[z].addEventListener("click", function() {
-            
+        allButtons[z].addEventListener("click", function(e) {
+            console.log("clickity");
+            fetchWeather(something);
+
 
         })
     }
