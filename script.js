@@ -18,6 +18,11 @@ if(localStorage != null) {
         storageButtons.innerHTML = storeArray[q];
         storageButtons.classList.add("searchHistoryButton");
         sideLeft.append(storageButtons);
+
+        storageButtons.addEventListener("click", function(e) {
+            citySearch.value = e.target.textContent;
+                fetchWeather(e.target.textContent);
+        })
 }
 }
 
