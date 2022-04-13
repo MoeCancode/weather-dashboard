@@ -12,6 +12,9 @@ var memoryStore = [];
 console.log(localStorage);
 
 if(localStorage.length != 0) {
+
+    console.log(JSON.parse(localStorage.getItem("cities")).length)
+
     for(var q = 0; q<(JSON.parse(localStorage.getItem("cities")).length); q++) {
         var storageButtons = document.createElement("button");
 
