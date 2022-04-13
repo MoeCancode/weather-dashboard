@@ -7,7 +7,9 @@ whereDateGoes.innerHTML = `(${date})`;
 var sideLeft = document.querySelector(".leftSide");
 var citySearch = document.querySelector("#searchForm");
 var alreadyssigned = false;
-var memoryStore = {};
+var memoryStore = [];
+
+// localStorage.getItem("City:");
 
 //function called when search button is clicked
 searchButton.addEventListener("click", function(e) {
@@ -17,13 +19,14 @@ searchButton.addEventListener("click", function(e) {
     fetchWeather(chosenCity);
 
 
-        
-        localStorage.setItem(chosenCity, chosenCity);
+        memoryStore.push(chosenCity);
+        localStorage.setItem("Cities:", JSON.stringify(memoryStore));
     
 })
 
 //function that generates url for the city using longitude and latitude
 async function fetchWeather(searchBarInput) {
+    console.log(searchBarInput);
     var geoDataObject = await fetchGeoCode(searchBarInput);
     // console.log(geoDataObject);
     var lon = geoDataObject[0].lon;
@@ -33,20 +36,34 @@ async function fetchWeather(searchBarInput) {
     // fetch(weatherURL).then(response =>response.json()).then(data => displayUpperData(data));
     fetch(weatherURL).then(function(response) {
         console.log(response.ok);
-        if(response.ok == true) {
+
+             return response.json();
+
+        
+    }).then(function(data) {
+        console.log(data);
+    
             var cityButton = document.createElement("button");
             cityButton.innerHTML = citySearch.value;
             cityButton.classList.add("searchHistoryButton");
             sideLeft.append(cityButton);
-             return response.json();
-        } 
-    }).then(function(data) {
+            
+
+            cityButton.addEventListener("click", function(e) {
+                console.log("clickity");
+                citySearch.value = e.target.textContent;
+                fetchWeather(e.target.textContent);
+                // console.log(e.target.textContent);
+            })
+        
+
         displayUpperData(data);
     })
 }
 
 //function that takes city name and gives back object containing longitude and latitude
 function fetchGeoCode(cityname) {
+    console.log(cityname);
     var geoCodeURL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&appid=${apiKey}`
 
    var geoData = fetch(geoCodeURL).then(response => response.json()).then(data => data);
@@ -56,25 +73,7 @@ return geoData;
 
 function displayUpperData(theData) {
     //Create Recent search button
-    
-
-    var allButtons = document.querySelectorAll(".searchHistoryButton");
-    console.log(allButtons);
-
-    for(var z = 0; z < allButtons.length; z++) {
-
-        allButtons[z].addEventListener("click", function(e) {
-            console.log("clickity");
-            fetchWeather(something);
-
-
-        })
-    }
-
-
-    //Make variables that store required values
-    //Update the text content on the HTML
-    
+    console.log(theData);
     // console.log(theData);
     
     var theTemperature = document.querySelector("#temperature");
@@ -155,3 +154,4 @@ function displayLowerData(theDataObject) {
 }
 
 
+// 
