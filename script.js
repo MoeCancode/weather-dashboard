@@ -11,7 +11,12 @@ var memoryStore = [];
 
 console.log(localStorage);
 
-if(localStorage.length != 0 || localStorage.getItem("cities") != null) {
+function setStorage() {
+    localStorage.setItem("cities", JSON.stringify([]))
+    return JSON.parse(localStorage.getItem("cities"))
+}
+
+    var storage = JSON.parse(localStorage.getItem("cities")) ?? setStorage()
 
     console.log(JSON.parse(localStorage.getItem("cities")).length)
 
@@ -29,7 +34,7 @@ if(localStorage.length != 0 || localStorage.getItem("cities") != null) {
                 fetchWeather(e.target.textContent);
         })
 }
-}
+
 
 //function called when search button is clicked
 searchButton.addEventListener("click", function(e) {
