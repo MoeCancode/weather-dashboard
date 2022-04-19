@@ -13,6 +13,19 @@ You can try out the dashboard by visiting the link below: <br><br>
 
 <br>
 
+# Technologies used
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Bootstrap](https://getbootstrap.com/)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [jQuery](https://api.jquery.com/)
+- [Openweathermap API](https://openweathermap.org/api)
+- [Git/Github](https://github.com/)
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/)
+
+<br>
+
 # Layout
 
 
